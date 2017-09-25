@@ -73,5 +73,11 @@ npm test
 DEBUG=redirect-output npm test
 ```
 
+### Publication
+
+```
+npm run prepublishOnly
+```
+
 ## License
 	MIT
