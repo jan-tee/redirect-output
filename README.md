@@ -9,7 +9,7 @@
 ## Installation:
 
 ```shell
-npm install redirect-output --save-dev
+npm install redirect-output
 ```
 
 ## Usage
