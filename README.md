@@ -28,6 +28,9 @@ console.log('text');
 
 // Restoring original process.stdout object
 output.restore();
+
+// Write some text to stdout only
+console.log('text');
 ```
 
 ### API
