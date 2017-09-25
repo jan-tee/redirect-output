@@ -29,8 +29,6 @@
 		"prepublishOnly": "npm test"
 	},
 
-	"types": "index.d.ts",
-
 	"dependencies": {
 		"@types/node": "^8.0.30",
 		"@types/mkdirp": "^0.5.1",
