@@ -1,18 +1,21 @@
 {
 	"name": "redirect-output",
-	"version": "0.0.2",
+	"version": "1.0.0",
 	"author": "Abashkin Alexander <monolithed@gmail.com>",
 	"license": "MIT",
 
-	"description": "Provides a way to redirect your process.stdout to a file",
+	"description": "Provides a way to redirect the output stream to a file",
 	"keywords": [
 		"console.file",
 		"console.log",
 		"process.stdout",
+		"process.stderr",
 		"log",
 		"output",
+		"stream",
 		"logger",
-		"stdout"
+		"stdout",
+		"stderr"
 	],
 
 	"engines": {

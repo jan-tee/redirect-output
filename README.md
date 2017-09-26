@@ -4,7 +4,7 @@
 [![Build Status](https://travis-ci.org/monolithed/redirect-output.png)](https://travis-ci.org/monolithed/redirect-output)
 [![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE.txt)
 
-> Provides a way to redirect your process.stdout to a file.
+> Provides a way to redirect the output stream (stdout/stderr) to a file.
 
 ## Installation:
 
@@ -26,11 +26,11 @@ let file = path.join(__dirname, 'console.log');
 
 output.write(file);
 
-// Write some text to file and stdout
+// Write some text to file and stdout/stderr
 console.log('text');
 
-// Restoring original process.stdout object
-output.restore();
+// Restoring original output
+output.reset();
 
 // Write some text to stdout only
 console.log('text');
@@ -58,11 +58,11 @@ interface IOptions {
 
 #### .write(file: string): void
 
-Redirect all of process.stdout to a log file.
+Redirect the output stream to a file.
 
-#### .restore(): void
+#### .reset(): void
 
-Restore original process.stdout method.
+Restore original streams.
 
 ### Tests
 
@@ -79,7 +79,8 @@ DEBUG=redirect-output npm test
 ### Publication
 
 ```
-npm run prepublishOnly
+npm test
+npm publish
 ```
 
 ## License

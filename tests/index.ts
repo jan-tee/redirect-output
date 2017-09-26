@@ -28,27 +28,29 @@ describe('Basic', () => {
 	});
 
 	afterEach(() => {
-		output.restore();
+		output.reset();
 	});
 
 	it('.write: expected last value', () => {
 		output.write(cache);
 
-		console.log('write');
+		console.log('stdout');
+		console.error('stderr');
 
-		output.restore();
+		output.reset();
 
 		return validate();
 	});
 
-	it('.restore: expected original value', () => {
+	it('.reset: expected original value', () => {
 		output.write(cache);
 
-		console.log('write');
+		console.log('stdout');
+		console.error('stderr');
 
-		output.restore();
+		output.reset();
 
-		console.log('restore');
+		console.log('reset');
 
 		return validate();
 	});

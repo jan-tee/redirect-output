@@ -4,7 +4,9 @@ import * as mkdirp from 'mkdirp';
 import * as Debug from 'debug';
 
 const debug = Debug('redirect-output');
-const write = process.stdout.write;
+
+const stdout = process.stdout.write;
+const stderr = process.stderr.write;
 
 class RedirectOutput {
 	constructor (public options?: IOptions) { }
@@ -19,14 +21,22 @@ class RedirectOutput {
 		let stream: fs.WriteStream = fs.createWriteStream(file, this.options);
 
 		process.stdout.write = function () {
-			write.apply(process.stdout, arguments);
+			stdout.apply(process.stdout, arguments);
+
+			return stream.write.apply(stream, arguments);
+		};
+
+		process.stderr.write = function () {
+			stdout.apply(process.stderr, arguments);
 
 			return stream.write.apply(stream, arguments);
 		};
 	}
 
-	restore (): void {
-		process.stdout.write = write;
+	/** Restore original objects */
+	reset (): void {
+		process.stdout.write = stdout;
+		process.stderr.write = stderr;
 	}
 }
 
