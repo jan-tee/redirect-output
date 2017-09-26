@@ -26,6 +26,7 @@
 
 	"scripts": {
 		"test": "npm prune && tsc && DEBUG=redirect-output mocha tests",
+		"tsc": "tsc",
 		"prepublishOnly": "npm test"
 	},
 
