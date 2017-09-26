@@ -17,11 +17,14 @@ npm install redirect-output
 *For example you could use the following code:*
 
 ```ts
+import * as path from 'path';
 import RedirectOutput from 'redirect-output';
 
 let output = new RedirectOutput();
 
-output.write('./console.log');
+let file = path.join(__dirname, 'console.log');
+
+output.write(file);
 
 // Write some text to file and stdout
 console.log('text');
